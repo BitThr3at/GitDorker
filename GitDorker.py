@@ -177,14 +177,13 @@ def api_search(url):
         json = r.json()
         if r.status_code==403:
             r = requests.get(url)
-            time.sleep(60)
-            # for remaining in range(120, 0, -1):
-            #     sys.stdout.write("\r")
-            #     sys.stdout.write(colored(
-            #         "\r[#] (-_-)zzZZzzZZzzZZzzZZ sleeping to avoid rate limits. GitDorker will resume soon (-_-)zzZZzzZZzzZZzzZZ | {:2d} seconds remaining.\r".format(
-            #             remaining), "blue"))
-            #     sys.stdout.flush()
-            #     time.sleep(1)
+            for remaining in range(60, 0, -1):
+                sys.stdout.write("\r")
+                sys.stdout.write(colored(
+                    "\r[#] (-_-)zzZZzzZZzzZZzzZZ sleeping to avoid rate limits. GitDorker will resume soon (-_-)zzZZzzZZzzZZzzZZ | {:2d} seconds remaining.\r".format(
+                        remaining), "blue"))
+                sys.stdout.flush()
+                time.sleep(1)
             r = requests.get(url,headers=headers)
             json = r.json()
             # print(json)
