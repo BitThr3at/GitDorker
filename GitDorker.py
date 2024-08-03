@@ -175,7 +175,6 @@ def api_search(url):
     headers = {"Authorization": "token " + token_round_robin(), "User-Agent": "Mozilla/5.0 (Linux; Android 8.0.0; SM-G960F Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.84 Mobile Safari/537.36"}
 
     try:
-        # print("sending "+url)
         r = requests.get(url,headers=headers)
         json = r.json()
         if r.status_code==403:
@@ -189,7 +188,6 @@ def api_search(url):
                 time.sleep(1)
             r = requests.get(url,headers=headers)
             json = r.json()
-            # print(json)
 
 
 
@@ -213,8 +211,6 @@ def api_search(url):
         #             time.sleep(1)
 
         if 'documentation_url' in json:
-            print(json)
-            # exit()
             print(colored("[-] error occurred: %s" % json['documentation_url'], 'red'))
         else:
             url_results_dict[url] = json['total_count']
