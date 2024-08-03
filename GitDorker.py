@@ -153,16 +153,19 @@ def token_round_robin():
 def api_search(url):
     if args.dorks:  # UNDO COMPLETE! :)
         if args.keyword:
+            sys.stdout.write("\r" + " " * 150 + "\r")  # Clear the current line
             sys.stdout.write(colored(
                 '\r[#] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Dorking with Keyword In Progress $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ %d/%d\r' % (stats_dict['n_current'], stats_dict['n_total_urls']),
                 "green"))
             sys.stdout.flush()
         else:
+            sys.stdout.write("\r" + " " * 150 + "\r")  # Clear the current line
             sys.stdout.write(
                 colored('\r[#] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Dorking In Progress $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  %d/%d\r' % (stats_dict['n_current'], stats_dict['n_total_urls']), "green"))
             sys.stdout.flush()
 
     elif args.keyword and not args.dorks:
+        sys.stdout.write("\r" + " " * 150 + "\r")  # Clear the current line
         sys.stdout.write(
             colored('\r[#] $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Keyword Search In Progress $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ %d/%d\r' % (stats_dict['n_current'], stats_dict['n_total_urls']),
                     "green"))
