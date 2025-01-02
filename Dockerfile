@@ -13,7 +13,7 @@ RUN apk add --no-cache python3 && \
     rm -r /root/.cache
 
 RUN apk add git
-RUN git clone https://github.com/obheda12/GitDorker.git /tmp/gitdorker
+RUN git clone https://github.com/bitthr3at/GitDorker.git /tmp/gitdorker
 
 WORKDIR /tmp/gitdorker
 
